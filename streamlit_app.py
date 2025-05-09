@@ -13,7 +13,7 @@ st.write(f"The name on your smoothie will be: {name_on_order} ")
 
 
 # st.write("You selected:", option)
-cnx= st.connected("snowflakes")
+cnx= st.connection("snowflakes")
 
 session = cnx.session()
 # edited_dataset = session.create_dataframe(editable_df)
