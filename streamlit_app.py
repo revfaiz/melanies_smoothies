@@ -1,6 +1,5 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 # Write directly to the app
 st.title(f" :cup_with_straw: Customize Your Smoothie :cup_with_straw: ")
@@ -14,8 +13,9 @@ st.write(f"The name on your smoothie will be: {name_on_order} ")
 
 
 # st.write("You selected:", option)
+cnx= st.connected("snowflakes")
 
-session = get_active_session()
+session = cnx.session()
 # edited_dataset = session.create_dataframe(editable_df)
 # og_dataset.merge(edited_dataset
 #                      , (og_dataset['ORDER_UID'] == edited_dataset['ORDER_UID'])
