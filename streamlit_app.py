@@ -37,16 +37,8 @@ if incredient_list:
     incredient_string = ''
     for fruit_chosen in incredient_list:
         incredient_string += fruit_chosen + ' '
-
-        # search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen].iloc[0]
-        # st.write('The search value for ', fruit_chosen,' is ', search_on, '.')
-      
-        # st.subheader(f"{fruit_chosen} Nutrition Information")
-
-        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-       # smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}")
-        st.text(smoothiefroot_response.json())
-        # sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+        smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/"+fruit_chosen)
+        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
         
 
     # st.write(incredient_string)
